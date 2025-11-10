@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 14:23:37 by dcastor           #+#    #+#             */
-/*   Updated: 2025/04/28 16:11:22 by dcastor          ###   ########.fr       */
+/*   Updated: 2025/11/10 13:54:55 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (nmemb * size > INT_MAX)
 		return (0);
 	if (!nmemb || !size)
-	{
-		mptr = malloc(0);
-		if (!mptr)
-			return (NULL);
-		return (mptr);
-	}
+		return (NULL);
 	i = 0;
 	mptr = malloc(size * nmemb);
 	if (!mptr)
