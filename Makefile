@@ -6,7 +6,7 @@
 #    By: dylan <dylan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 16:35:34 by dcastor           #+#    #+#              #
-#    Updated: 2025/11/12 15:04:59 by dylan            ###   ########.fr        #
+#    Updated: 2025/11/12 18:07:58 by dylan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,7 @@ SRCS = $(addprefix $(SRCS_DIR), \
 	output/ft_printf/entities/format.c \
 	output/ft_printf/entities/text_raw.c \
 	\
+	output/ft_printf/parsers/flags/flag_parser.c \
 	output/ft_printf/parsers/flags/hash_parser.c \
 	output/ft_printf/parsers/flags/minus_parser.c \
 	output/ft_printf/parsers/flags/plus_parser.c \
