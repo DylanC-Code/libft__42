@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+         #
+#    By: dylan <dylan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 16:35:34 by dcastor           #+#    #+#              #
-#    Updated: 2025/06/12 12:50:23 by dcastor          ###   ########.fr        #
+#    Updated: 2025/11/12 15:04:59 by dylan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,42 @@ SRCS = $(addprefix $(SRCS_DIR), \
 	utils/quick_sort.c \
 	utils/gnl/get_next_line.c \
 	utils/gnl/get_next_line_part2.c \
+	\
+	output/ft_printf/entities/format.c \
+	output/ft_printf/entities/text_raw.c \
+	\
+	output/ft_printf/parsers/flags/hash_parser.c \
+	output/ft_printf/parsers/flags/minus_parser.c \
+	output/ft_printf/parsers/flags/plus_parser.c \
+	output/ft_printf/parsers/flags/space_parser.c \
+	output/ft_printf/parsers/flags/zero_parser.c \
+	\
+	output/ft_printf/parsers/types/int_parsers.c \
+	output/ft_printf/parsers/types/pchar_parsers.c \
+	output/ft_printf/parsers/types/percent_parser.c \
+	output/ft_printf/parsers/types/pvoid_parsers.c \
+	output/ft_printf/parsers/types/types_parsers.c \
+	output/ft_printf/parsers/types/unsigned_int_parsers.c \
+	\
+	output/ft_printf/parsers/parsers.c \
+	output/ft_printf/parsers/precision_parser.c \
+	output/ft_printf/parsers/width_parser.c \
+	\
+	output/ft_printf/transformers/c_transformers.c \
+	output/ft_printf/transformers/int_transformers.c \
+	output/ft_printf/transformers/pchar_transformer.c \
+	output/ft_printf/transformers/percent_transformer.c \
+	output/ft_printf/transformers/precision_transformer.c \
+	output/ft_printf/transformers/pvoid_transformer.c \
+	output/ft_printf/transformers/sharp_transformer.c \
+	output/ft_printf/transformers/sign_transformer.c \
+	output/ft_printf/transformers/transformers.c \
+	output/ft_printf/transformers/unsigned_int_transformers.c \
+	output/ft_printf/transformers/width_transformer.c \
+	\
+	output/ft_printf/ft_printf.c \
+	output/ft_printf/printers.c \
+	output/ft_printf/utils.c \
 	\
 	output/ft_putchar_fd.c \
 	output/ft_putstr_fd.c \

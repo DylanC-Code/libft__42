@@ -1,0 +1,97 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   width_transformer.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/05 09:39:16 by dcastor           #+#    #+#             */
+/*   Updated: 2025/11/12 14:52:16 by dylan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* =============== Importation =============== */
+
+#include "output/ft_printf/ft_printf.h"
+
+/* =============== Declaration =============== */
+
+t_status		apply_width(t_format *format);
+static t_status	fill_width_with_zero(t_format *format);
+static t_status	fill_width_with_space(t_format *format);
+static t_status	fill_width_with_space_by_end(t_format *format);
+
+/* =============== Definition =============== */
+
+t_status	apply_width(t_format *format)
+{
+	if (format->minus)
+		return (fill_width_with_space_by_end(format));
+	else if (format->zero && format->precision <= 0)
+		return (fill_width_with_zero(format));
+	return (fill_width_with_space(format));
+}
+
+static t_status	fill_width_with_zero(t_format *format)
+{
+	const bool		is_sign = ft_strchr("-+", *format->text);
+	const size_t	pad_len = format->width - format->text_len;
+	char			*result;
+	size_t			i;
+
+	i = 0;
+	if (format->width <= format->text_len)
+		return (P_NOOP);
+	result = malloc(format->width + 1);
+	if (!result)
+		return (P_ERROR);
+	ft_strset(result, '0', format->width);
+	if (is_sign)
+	{
+		result[i++] = *format->text;
+		ft_strlcpy(result + i + pad_len, format->text + 1, format->text_len
+			+ 1);
+	}
+	else
+		ft_strlcpy(result + i + pad_len, format->text, format->text_len + 1);
+	free(format->text);
+	format->text = result;
+	format->text_len = format->width;
+	return (P_SUCCESS);
+}
+
+static t_status	fill_width_with_space(t_format *format)
+{
+	const size_t	pad_len = format->width - format->text_len;
+	char			*result;
+
+	if (format->width <= format->text_len)
+		return (P_NOOP);
+	result = malloc(format->width + 1);
+	if (!result)
+		return (P_ERROR);
+	ft_strset(result, ' ', pad_len);
+	ft_strlcpy(result + pad_len, format->text, format->text_len + 1);
+	free(format->text);
+	format->text = result;
+	format->text_len = format->width;
+	return (P_SUCCESS);
+}
+
+static t_status	fill_width_with_space_by_end(t_format *format)
+{
+	const size_t	pad_len = format->width - format->text_len;
+	char			*result;
+
+	if (format->width <= format->text_len)
+		return (P_NOOP);
+	result = ft_calloc(format->width + 1, sizeof(char));
+	if (!result)
+		return (P_ERROR);
+	ft_strlcpy(result, format->text, format->text_len + 1);
+	ft_strset(result + format->text_len, ' ', pad_len);
+	free(format->text);
+	format->text = result;
+	format->text_len = format->width;
+	return (P_SUCCESS);
+}

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   output.h                                           :+:      :+:    :+:   */
+/*   pchar_parsers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 12:10:29 by dcastor           #+#    #+#             */
-/*   Updated: 2025/11/12 14:32:42 by dylan            ###   ########.fr       */
+/*   Created: 2025/05/05 16:08:17 by dcastor           #+#    #+#             */
+/*   Updated: 2025/11/12 14:58:34 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OUTPUT_H
-# define OUTPUT_H
+/* =============== Importation =============== */
 
-# include "libft.h"
-# include "output/ft_printf/ft_printf.h"
-# include <stdlib.h>
+#include "output/ft_printf/ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-int		print_err(char *err);
+/* =============== Declaration =============== */
 
-#endif
+t_status	parse_pchar_type(t_format *format);
+
+/* =============== Definition =============== */
+
+t_status	parse_pchar_type(t_format *format)
+{
+	if (format->plus || format->sharp)
+		return (P_ERROR);
+	return (P_SUCCESS);
+}

@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   list.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcastor <dcastor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 13:44:31 by dcastor           #+#    #+#             */
-/*   Updated: 2025/05/18 20:11:37 by dcastor          ###   ########.fr       */
+/*   Updated: 2025/11/12 15:02:20 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
 
-# include "libft.h"
+#include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct s_list
 {

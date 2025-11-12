@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   output.h                                           :+:      :+:    :+:   */
+/*   text_raw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 12:10:29 by dcastor           #+#    #+#             */
-/*   Updated: 2025/11/12 14:32:42 by dylan            ###   ########.fr       */
+/*   Created: 2025/05/03 11:48:22 by dcastor           #+#    #+#             */
+/*   Updated: 2025/11/12 15:05:11 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OUTPUT_H
-# define OUTPUT_H
+#include "output/ft_printf/ft_printf.h"
 
-# include "libft.h"
-# include "output/ft_printf/ft_printf.h"
-# include <stdlib.h>
+t_element	*create_text_raw(char *text, size_t len)
+{
+	t_element	*node;
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-int		print_err(char *err);
-
-#endif
+	node = malloc(sizeof(t_element));
+	if (!node)
+		return (NULL);
+	node->type = T_TEXT;
+	node->data.text_raw.text = text;
+	node->data.text_raw.len = len;
+	return (node);
+}

@@ -1,0 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   transformers.h                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/04 20:42:11 by dcastor           #+#    #+#             */
+/*   Updated: 2025/11/12 14:52:16 by dylan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef TRANSFORMERS_H
+# define TRANSFORMERS_H
+
+# include "output/ft_printf/ft_printf.h"
+# include "output/ft_printf/types.h"
+# include <stdarg.h>
+# include <stdbool.h>
+
+t_status	apply_formats(t_list *head, va_list args);
+t_status	apply_precision(t_format *format);
+t_status	apply_sign(t_format *format, bool is_positive);
+t_status	apply_width(t_format *format);
+t_status	apply_sharp(t_format *format, bool upper);
+
+/* Types */
+t_status	transform_int(t_format *format, int n);
+t_status	transform_pchar(t_format *format, char *str);
+t_status	transform_pvoid(t_format *format, void *addr);
+t_status	transform_unsigned_int(t_format *format, unsigned int nbr);
+t_status	transform_percent(t_format *format);
+t_status	transform_c(t_format *format, char c);
+
+#endif
