@@ -6,7 +6,7 @@
 /*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:55:46 by dylan             #+#    #+#             */
-/*   Updated: 2025/12/11 17:16:47 by dylan            ###   ########.fr       */
+/*   Updated: 2025/12/11 18:17:21 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,12 @@ static struct s_info	get_info(void *head, void *(*get_next)(void *element))
 		next = get_next(next);
 	}
 	res.tail = next;
-	res.mid = get_mid(head, res.len / 2, get_next);
+	if (!res.len)
+		return (res);
+	if (res.len % 2)
+		res.mid = get_mid(head, res.len / 2 + 1, get_next);
+	else
+		res.mid = get_mid(head, res.len / 2, get_next);
 	return (res);
 }
 
@@ -97,6 +102,8 @@ void	*ft_lstsort(void *restrict head, const struct s_list_ops *restrict ops)
 	void				*list_a;
 	void				*list_b;
 
+	if (!info.len)
+		return (NULL);
 	if (info.len % 2)
 	{
 		len_a = info.len / 2 + 1;
