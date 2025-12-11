@@ -6,7 +6,7 @@
 /*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 16:13:30 by dcastor           #+#    #+#             */
-/*   Updated: 2025/11/12 08:56:55 by dylan            ###   ########.fr       */
+/*   Updated: 2025/12/11 17:09:59 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include "dlist.h"
 # include "int.h"
 # include "list.h"
+# include "list/ft_lstmerge.h"
+# include "list/ft_lstsort.h"
 # include "mem.h"
 # include "number.h"
 # include "output.h"

@@ -6,7 +6,7 @@
 #    By: dylan <dylan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 16:35:34 by dcastor           #+#    #+#              #
-#    Updated: 2025/11/12 18:09:51 by dylan            ###   ########.fr        #
+#    Updated: 2025/12/11 17:08:54 by dylan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS = $(addprefix $(SRCS_DIR), \
 	\
 	int/ft_dup_int_arr.c \
 	int/ft_int_in_arr.c \
+	\
 	\
 	memory/ft_memset.c \
 	memory/ft_bzero.c \
@@ -132,6 +133,8 @@ SRCS = $(addprefix $(SRCS_DIR), \
 	list/ft_lstclear.c \
 	list/ft_lstiter.c \
 	list/ft_lstmap.c \
+	list/ft_lstsort.c \
+	list/ft_lstmerge.c \
 	\
 	validate/ft_isalpha.c \
 	validate/ft_isdigit.c \
