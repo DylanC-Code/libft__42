@@ -6,7 +6,7 @@
 /*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 13:44:31 by dcastor           #+#    #+#             */
-/*   Updated: 2025/12/11 17:09:07 by dylan            ###   ########.fr       */
+/*   Updated: 2025/12/12 11:16:41 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
-						
 
 #endif

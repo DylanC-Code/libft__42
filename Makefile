@@ -6,7 +6,7 @@
 #    By: dylan <dylan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 16:35:34 by dcastor           #+#    #+#              #
-#    Updated: 2025/12/11 17:08:54 by dylan            ###   ########.fr        #
+#    Updated: 2025/12/12 11:10:41 by dylan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -135,6 +135,7 @@ SRCS = $(addprefix $(SRCS_DIR), \
 	list/ft_lstmap.c \
 	list/ft_lstsort.c \
 	list/ft_lstmerge.c \
+	list/ft_lstreverse.c \
 	\
 	validate/ft_isalpha.c \
 	validate/ft_isdigit.c \
