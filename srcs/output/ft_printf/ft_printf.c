@@ -6,7 +6,7 @@
 /*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 11:54:36 by dcastor           #+#    #+#             */
-/*   Updated: 2025/11/12 14:52:21 by dylan            ###   ########.fr       */
+/*   Updated: 2025/12/13 10:39:00 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	ft_printf(const char *str, ...)
 
 	va_start(args, str);
 	if (!str)
-		return (P_ERROR);
+		return (va_end(args), P_ERROR);
 	list = NULL;
 	if (parse_str((char *)str, &list) == P_ERROR)
-		return (free_list_el(list), P_ERROR);
+		return (free_list_el(list), va_end(args), P_ERROR);
 	if (!list)
-		return (0);
+		return (va_end(args), 0);
 	if (apply_formats(list, args) == P_ERROR)
-		return (free_list_el(list), P_ERROR);
-	return (print_contents(list));
+		return (free_list_el(list), va_end(args), P_ERROR);
+	return (va_end(args), print_contents(list));
 }

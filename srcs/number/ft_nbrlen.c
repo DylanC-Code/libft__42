@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   number.h                                           :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dylan <dylan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 17:33:05 by dcastor           #+#    #+#             */
-/*   Updated: 2025/12/13 10:22:22 by dylan            ###   ########.fr       */
+/*   Created: 2025/12/13 10:19:24 by dylan             #+#    #+#             */
+/*   Updated: 2025/12/13 10:21:56 by dylan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NUMBER_H
-# define NUMBER_H
+#include <stdlib.h>
 
-# include "number/ft_nbrlen.h"
+size_t	ft_nbrlen(int nbr, unsigned int base)
+{
+	size_t	len;
 
-int			ft_max(int a, int b);
-long int	ft_abs(int n);
-
-#endif
+	len = 0;
+	if (nbr == 0)
+		return (1);
+	else if (nbr < 0)
+	{
+		len++;
+		nbr *= -1;
+	}
+	while (nbr)
+	{
+		len++;
+		nbr /= base;
+	}
+	return (len);
+}
